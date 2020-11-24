@@ -1,0 +1,58 @@
+/*******************************************************
+				
+				Лабараторная работа 
+				Обработка массивов
+				вариант 17 выполнил 
+				
+									Петенев М.А. ПИ-203
+*******************************************************/
+#include <iostream>
+
+using namespace std;
+
+int main ()
+{
+	int i = 0;
+	int k = 0;
+	int max, min;
+	int W [2][6] = 
+	{
+		{2,8,2,6,3,4},
+		{4,5,7,0,9,1}
+		//,{4,6,1,2,0,4}
+	} ;
+	for (i = 0; i < 2; i++)
+	 { for (k=0; k < 6; k++)
+	     {
+		cout << W[i][k] << " ";
+	     } 
+	    cout << endl;
+	    //i++;
+	 }; 
+	 cout << endl ;
+		for (k=0; k < 6; k++)	  
+	    {
+	     	if ( W[0][k] < W[1][k] )
+	     	{
+				W[0][k] = W[0][k] + W[1][k];
+		     	W[1][k] = W[0][k] - W[1][k];
+	    	 	W[0][k] = W[0][k] - W[1][k];
+			}
+	     };
+	 
+	 for (i = 0; i < 2; i++)
+	 { for (k=0; k < 6; k++)
+	     {
+		cout << W[i][k] << " ";
+	     } 
+	    cout << endl;
+	    //i++;
+	 };
+/*  //Out for one matrix element*
+	cout << "Enter Column and Row : " << endl;
+	cin >>  i ;
+	cin >>  k ;
+	k=k-1; i=i-1;
+	cout << "matrix element - "<< W [i][k];
+*/
+ } 

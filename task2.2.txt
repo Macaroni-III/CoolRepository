@@ -1,0 +1,64 @@
+/****************************************************************
+ *                                                              *
+ *                                                              *
+ *                     Лабараторная работа:                     *
+ *                  цикры с пред- и постусловием                *
+ *                         Вариант 17                           *
+ *                                                              *
+ *                                                              *
+ *                             Выполнил Петенев М.А. ПИ-203     *
+ ****************************************************************/
+
+#include <iostream>
+#include <cmath>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    double G, p, n, S, d;
+    // не изменяемые переменные
+    G = 28;
+    n = 16;
+    S = 5;
+    //cout << G << n << S;
+    double part; //левая часть примера
+    part = 2.55 * G / n;
+    //cout << part << endl;;
+    int i = 1;
+    double znam;
+    double ln_drob;
+    double chis;
+    double b_drob;
+    cout << "Введите начальное d : " << endl;
+    //d = 0.25;
+    cin >> d;
+    //for (d = 0.25; d < 1.6; d=d+0.25)
+    while (d < 1.5)
+    {
+        znam = pow(S, 2) - pow(d, 2);
+        ln_drob = S / d;
+        chis = log(ln_drob);
+        b_drob = chis / znam;
+        p = part * b_drob;
+        cout << " d = " << d << " см ; ";
+        cout << " P = " << p << endl;
+        d = d + 0.25;
+    }
+    cout << " " << endl;
+    //system("pause");
+    do
+    {
+        znam = pow(S, 2) - pow(d, 2);
+        ln_drob = S / d;
+        chis = log(ln_drob);
+        b_drob = chis / znam;
+        p = part * b_drob;
+        cout << " d = " << d << " см ; ";
+        cout << " P = " << p << endl;
+        d = d + 0.5;
+    } 
+    while (d <= 4.5);
+    return 0;
+}

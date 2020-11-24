@@ -1,0 +1,78 @@
+/********************************************************************************
+*                                                                               *
+*                              Лабараторная Работа                              *
+*                        Задание 3 - Циклы с ветвлениями                        *
+*                                Вариант 17                                     *
+*                                                                               *
+*                                                    Выполнил - Петенев М.А.    *
+*********************************************************************************/
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+//���������: +torrent1;+torrent2;+h;+h1;+h2;+A;+Q1;+Q2;+pi;+g;
+int main()
+{
+    const double g  = 9.8  ;
+    const double pi = 3.14 ;
+    double h1 =  5  ; 
+    double h  =  1  ;
+    double d1 = 3.5 ;
+    double torrent1 , torrent2;
+    double A  , h2  ;
+    double Q1 , Q2  ;
+    double d  ;
+	d1 = d1 / 100 ;
+    /* 
+    cin >> torrent1 >> torrent1 >> d2 >> endl;
+    */
+    torrent1 = 0.9  ; torrent2 = 0.6; 
+    
+    double koren_Q1 ;
+    koren_Q1 = 2*g*(h1-h) ;
+    Q1 = pi*torrent1*pow(d1,2)*sqrt(koren_Q1)/4 ;
+    double d2 = 3;
+    
+   
+    
+    
+    
+    while (d2 <= 15 )
+    {
+        Q2 = pi*torrent2*pow((d2/100),2)*sqrt(2*g*h)/4 ;
+        double scob_A;
+        scob_A  = torrent1*pow(d1,2)/torrent2/pow((d2/100),2);
+        A  = pow (scob_A,2);
+        if (Q1 < Q2) 
+        {
+            h2=A*(h1-h)  ;
+            cout << "h2 = " << h2 << " ";
+        }
+        else 
+        {
+            h2=A*h/(1+A);
+            cout << "h2 = " << h2 << " ";
+        }
+        if (d2>=7)
+        {
+        	if (d2 >= 10)
+        	{
+        		d2 += 5;
+			}
+			else
+			{
+				d2 += 3;
+			}
+		}
+		else
+		{
+			d2 += 2;
+		}
+		cout << "Q1 = " << Q1 << " "	   ;
+		cout << "Q2 = " << Q2 << " " <<endl;
+    }
+    
+    return 0;
+    
+}

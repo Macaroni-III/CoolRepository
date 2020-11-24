@@ -1,0 +1,53 @@
+/****************************************************************
+ *                                                              *
+ *                                                              *   
+ *                   Лабараторная работа:                       *
+ *            програмирование линейных алгоритмов               *
+ *                        Вариант 17                            *
+ *                                                              *
+ *                                                              *
+ *                             Выполнил Петенев М.А. ПИ-203     *
+ ****************************************************************/
+// Програмирование Задание 1 Петенев М.А.
+
+#include <iostream>
+#include <cmath>
+#include <math.h>
+#include <locale.h>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+
+    const double pi = 3.14;
+    const double e = 2.72;
+    double U,R,L,f, psi, t ;
+    
+    cout << "Введите соответсвенно следующие значения - U, R, L, f, psi(градусы), t :" << endl ;
+    
+    cin >> U >> R >> L >> f >> psi >> t; //Ручной ввод
+    //U = 220; R = 30; L = 0.65; f = 50; psi = 280; t = 0.01; //готовые переменные
+    psi = psi * pi / 180 ; // градусы в радианы 
+    //t = 0 - t; cout << t << endl;
+    cout << "U = " << U << " ; R = " << R << " ; L = " << L << "; f = " << f << "; psi(радианы) = " << psi << "; t = " << t << "  ." << endl;
+    double Omega = 2*pi*f;
+    cout << "Omega = " << Omega << endl;
+    double scob_fi = Omega * L / R;
+    cout << "scob_fi = " << scob_fi << endl;
+    double fi = atan(scob_fi);
+    cout << "fi = " << fi << endl;
+    double step_e = 0 - t*R/L;
+    cout << "step_e = " << step_e << endl;
+    double scob_X = Omega * t + psi - fi + pi / 2;
+    //double scob_X = 5.03719;
+    cout << "scob_X = "<< scob_X << endl;
+    double X = sin(fi) * sin(scob_X);
+    double Y = cos(fi) * sin(psi - fi) * pow(e,step_e);
+    cout << "X = " << X << endl << "Y - " << Y << endl;
+    double Ul = U * (X + Y);
+    cout << " ответ : " << Ul << " .";
+    return 0;
+
+}
